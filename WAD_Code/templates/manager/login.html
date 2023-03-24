@@ -1,0 +1,39 @@
+{% extends 'manager/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Login
+{% endblock %} 
+   
+{% block body_block %}
+<!----
+<form id="login_form" method="post" action="{% url 'manager:login' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ log_in_form.as_p }}
+    <input type="submit" name="submit" value="Login" />
+</form>
+-->
+<div class="form-group">
+    <form id="login_form" method="post" action="{% url 'manager:login' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+<!--        Some CSS to make the form prettier - shouldn't affect the function-->
+        <div class="mb-3">
+            <label class="form-label">Username:</label>
+            <input type="text" class="form-control" name="username"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password:</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+<!--        Username: <input type="text" name="username" value="" size="50" />-->
+<!--        <br />-->
+<!--        Password: <input type="password" name="password"  value="" size="50" />-->
+<!--        <br />-->
+        <input type="submit" class="btn btn-outline-primary" value="submit" />
+    </form>
+
+</div>
+
+
+{% endblock %}

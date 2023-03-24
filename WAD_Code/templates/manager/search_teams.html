@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'manager/base.html' %}
+{% load static %}
+{% block title_block %}
+	Search for a team
+{% endblock %}
+
+{% block body_block %}
+	<div class="form-group">
+		<form id="search_form" method="post" action="{% url 'manager:search_results' %}"/>
+			{% csrf_token %}
+			{{ search_form.as_p }}
+			<input type="submit" class="btn btn-outline-primary" name="submit" value="search" />
+		</form>
+	</div>
+	{% endblock %} 
